@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>ToDo List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="ToDo List: REST API / Twitter Bootstrap / jQuery  for a recruitment test.">
+    <meta name="author" content="NAcho">
 
     <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
