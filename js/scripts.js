@@ -13,7 +13,7 @@
 			
 			$('#lists').html('');
 			$.ajax({
-				  url: "lists.php",
+				  url: "lists.php?action=list",
 				  data:{orderBy:getLists.orderBy,order:getLists.order},
 				  dataType:'json',
 				  context: document.body
