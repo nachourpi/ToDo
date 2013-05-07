@@ -25,13 +25,19 @@ switch($_REQUEST['action']){
 		
 		
 		break;
+	case "list":
+		
+		if(isset($_REQUEST['orderBy']))
+			$lists->setOrderBy(($_REQUEST['orderBy']==1)?"dueDate":"priority");
+		if(isset($_REQUEST['order']))
+			$lists->setOrder(($_REQUEST['order']==1)?"ASC":"DESC");
+
+		echo json_encode($lists->getByUser());
+		
+		
+		break;
 }
 
-if(isset($_REQUEST['orderBy']))
-	$lists->setOrderBy(($_REQUEST['orderBy']==1)?"dueDate":"priority");
-if(isset($_REQUEST['order']))
-	$lists->setOrder(($_REQUEST['order']==1)?"ASC":"DESC");
 
-echo json_encode($lists->getByUser());
 
 ?>
