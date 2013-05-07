@@ -17,7 +17,7 @@ switch($_REQUEST['action']){
 		
 		
 		$login = $users->login($_REQUEST['username'],$_REQUEST['password']);
-		echo json_encode(array("login"=>$login,"MSG"=>$login?"LogIn successful":"LogIn failed."));
+		echo json_encode(array("token"=>$login,"MSG"=>$login?"LogIn successful":"LogIn failed."));
 		
 		break;
 	case "logout":

@@ -52,7 +52,35 @@ class UsersManager
 			$_SESSION['idUser'] = $obj->idUser;
 			$_SESSION['username'] = $obj->username;
 			
-			return true;
+			
+			$token = hash("md5",$_SESSION['username']);
+			
+			$sql = "UPDATE users SET token='$token' WHERE idUser='".$_SESSION['idUser']."'";
+        
+			$result = $this->conn->query($sql);
+			
+			return $token;
+		}
+		
+        return false;
+    }
+	public function loginByToken($token){
+        
+        
+        $sql = "SELECT * FROM users WHERE token='$token' ";
+        
+		$result = $this->conn->query($sql);
+        
+		if($result->num_rows > 0 ){
+			if($row = $result->fetch_object()) {
+				$obj=$row;
+			}
+			
+			$_SESSION['idUser'] = $obj->idUser;
+			$_SESSION['username'] = $obj->username;
+			
+			
+			return $token;
 		}
 		
         return false;
@@ -62,6 +90,8 @@ class UsersManager
 		$_SESSION['idUser'] = '';
 		$_SESSION['username'] = '';
         
+		
+		
         return session_destroy();
 		
 	}
